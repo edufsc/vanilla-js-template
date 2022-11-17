@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <!-- para que sea acaptable a mobile -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Banco</title>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <!-- ponemos data-app-link a los enlaces internos de la app para gestionar la navegación -->
+            <li><a data-app-link href="/">Inicio</a></li>
+            <li><a data-app-link href="/mi-perfil">Mi perfil</a></li>
+        </ul>
+    </nav>
+
+    <!-- aquí cargamos el contenido de la página con JS -->
+    <main id="contenedor-pagina"></main>
+
+    <!-- indicamos que es tipo "module" para pode rutilizar imports -->
+    <script type="module" src="./src/main.js"></script>
+</body>
+
+</html>
