@@ -1,0 +1,7 @@
+# redirige las peticiones de archivos o directorios desconocidos al index (en /)
+# válido en servidores Apache que acepten htaccess
+Options +SymLinksIfOwnerMatch 
+RewriteEngine On 
+RewriteCond %{REQUEST_FILENAME} !-f 
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . / [L]

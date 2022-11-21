@@ -3,9 +3,12 @@
 
 <head>
     <meta charset="UTF-8" />
-    <!-- para que sea acaptable a mobile -->
+    <!-- para que sea adaptable a mobile -->
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Banco</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 </head>
 
 <body>
@@ -14,11 +17,13 @@
             <!-- ponemos data-app-link a los enlaces internos de la app para gestionar la navegación -->
             <li><a data-app-link href="/">Inicio</a></li>
             <li><a data-app-link href="/mi-perfil">Mi perfil</a></li>
+            <li><a data-app-link href="/nuevo-gestor">Nuevo gestor</a></li>
+            <li><a data-app-link href="/login">Iniciar Sesión</a></li>
         </ul>
     </nav>
 
     <!-- aquí cargamos el contenido de la página con JS -->
-    <main id="contenedor-pagina"></main>
+    <main class="p-5" id="contenedor-pagina"></main>
 
     <!-- indicamos que es tipo "module" para pode rutilizar imports -->
     <script type="module" src="./src/main.js"></script>

@@ -1,13 +1,19 @@
 import InicioVista from "./vistas/inicio/InicioVista.js"
+import MiPerfilVista from "./vistas/mi-perfil/MiPerfilVista.js"
 import NotFoundVista from "./vistas/not-found/NotFoundVista.js"
+import NuevoGestorVista from "./vistas/nuevo-gestor/NuevoGestorVista.js"
+import LoginVista from "./vistas/login/LoginVista.js"
 
 // para controlar las rutas de la aplicación
 const router = async () => {
     // nuestras rutas
     const rutas = [
         // indicamos la ruta y la clase para cargar la vista
-        { path: "/not-found", view: NotFoundVista },
-        { path: "/", view: InicioVista },
+        { path: "/not-found", view: NotFoundVista, hasLogin: false },
+        { path: "/", view: InicioVista, hasLogin: true },
+        { path: "/mi-perfil", view: MiPerfilVista, hasLogin: true },
+        { path: "/nuevo-gestor", view: NuevoGestorVista, hasLogin: true },
+        { path: "/login", view: LoginVista, hasLogin: false },
     ]
 
     // la ruta que cargaremos si se intenta navegar a una que no existe
@@ -30,6 +36,15 @@ const router = async () => {
         rutaActual = {
             ruta: rutaPorDefecto,
             coincide: true
+        }
+    }
+
+    // comprobar si el usuario ha iniciado sesión
+    if (rutaActual.ruta.hasLogin) {
+        const usuarioGuardado = sessionStorage.getItem("miUsuario")
+        if (usuarioGuardado == null) {
+            navegarA("/login")
+            return;
         }
     }
 
